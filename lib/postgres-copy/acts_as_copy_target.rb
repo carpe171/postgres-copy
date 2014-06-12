@@ -11,7 +11,7 @@ module PostgresCopy
         options = {:delimiter => ",", :format => :csv, :header => true}.merge(options)
         options_string = if options[:format] == :binary
                            "BINARY"
-                         elsif :text
+                         elsif options[:format] == :text
                            "NULL ''"
                          else
                            "DELIMITER '#{options[:delimiter]}' CSV #{options[:header] ? 'HEADER' : ''}"
