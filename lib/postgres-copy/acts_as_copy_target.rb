@@ -8,7 +8,7 @@ module PostgresCopy
     module CopyMethods
       # Copy data to a file passed as a string (the file path) or to lines that are passed to a block
       def copy_to path = nil, options = {}
-        options = {:delimiter => ",", :format => :csv, :header => true, :null => 'null'}.merge(options)
+        options = {:delimiter => ",", :format => :csv, :header => true, :null => nil}.merge(options)
         options_string = if options[:format] == :binary
                            "BINARY"
                          elsif options[:format] == :text
